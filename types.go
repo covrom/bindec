@@ -153,11 +153,11 @@ func (t Maybe) Encoder(recv string) string {
 	return fmt.Sprintf(`
 {
 	if x := %s; x == nil {
-		if _, err := writer.Write([]byte{0}); err != nil {
+		if _, err := w.Write([]byte{0}); err != nil {
 			return err
 		}
 	} else {
-		if _, err := writer.Write([]byte{1}); err != nil {
+		if _, err := w.Write([]byte{1}); err != nil {
 			return err
 		}
 
@@ -174,7 +174,7 @@ func (t Maybe) Decoder(recv string, root bool, constraints ...Constraint) string
 	return fmt.Sprintf(`
 {
 	var v = make([]byte, 1)
-	if _, err := io.ReadFull(reader, v); err != nil {
+	if _, err := io.ReadFull(r, v); err != nil {
 		return err
 	}
 
@@ -213,7 +213,7 @@ func (t Slice) Encoder(recv string) string {
 	}
 	bs := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bs, ux)
-	_, err := writer.Write(bs)
+	_, err := w.Write(bs)
 	if err != nil {
 		return err
 	}
@@ -229,7 +229,7 @@ func (t Slice) Decoder(recv string, root bool, constraints ...Constraint) string
 	return fmt.Sprintf(`
 {
 	var bs = make([]byte, 8)
-	if _, err := io.ReadFull(reader, bs); err != nil {
+	if _, err := io.ReadFull(r, bs); err != nil {
 		return err
 	}
 
@@ -314,7 +314,7 @@ func (t Map) Encoder(recv string) string {
 	}
 	bs := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bs, ux)
-	_, err := writer.Write(bs)
+	_, err := w.Write(bs)
 	if err != nil {
 		return err
 	}
@@ -333,7 +333,7 @@ func (t Map) Decoder(recv string, root bool, constraints ...Constraint) string {
 	return fmt.Sprintf(`
 {
 	var bs = make([]byte, 8)
-	if _, err := io.ReadFull(reader, bs); err != nil {
+	if _, err := io.ReadFull(r, bs); err != nil {
 		return err
 	}
 

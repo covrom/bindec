@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/erizocosmico/bindec"
+	"github.com/covrom/bindec"
 )
 
 func main() {

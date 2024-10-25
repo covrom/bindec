@@ -1,11 +1,11 @@
-# bindec [![Build Status](https://travis-ci.org/erizocosmico/bindec.svg?branch=master)](https://travis-ci.org/erizocosmico/bindec) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Go Report Card](https://goreportcard.com/badge/github.com/erizocosmico/bindec)](https://goreportcard.com/report/github.com/erizocosmico/bindec)
+# bindec [![Build Status](https://travis-ci.org/covrom/bindec.svg?branch=master)](https://travis-ci.org/covrom/bindec) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Go Report Card](https://goreportcard.com/badge/github.com/covrom/bindec)](https://goreportcard.com/report/github.com/covrom/bindec)
 
 `bindec` generates encoders and decoders to encode and decode binary representations of types. Encoders and decoders are code-generated, thus generating code tailored specifically for your type, making encoding and decoding really fast.
 
 ### Install
 
 ```
-go get github.com/erizocosmico/bindec/cmd/...
+go install github.com/covrom/bindec/cmd/bindec@latest
 ```
 
 ### Usage
@@ -101,13 +101,13 @@ Speed:
 ```
 goos: darwin
 goarch: amd64
-pkg: github.com/erizocosmico/bindec/bench
+pkg: github.com/covrom/bindec/bench
 BenchmarkEncode/bindec-4                  500000              2274 ns/op     576 B/op           6 allocs/op
 BenchmarkEncode/gob-4                     100000             12464 ns/op    2432 B/op          41 allocs/op
 BenchmarkDecode/bindec-4                  500000              2590 ns/op     528 B/op          22 allocs/op
 BenchmarkDecode/gob-4                      50000             37126 ns/op    9572 B/op         249 allocs/op
 PASS
-ok      github.com/erizocosmico/bindec/bench    6.137s
+ok      github.com/covrom/bindec/bench    6.137s
 ```
 
 Size:
