@@ -25,6 +25,8 @@ func TestGenerate(t *testing.T) {
 		t.Errorf("unexpected error: %s", err)
 	}
 
+	// os.WriteFile("./file.go", data, 0600)
+
 	fset := token.NewFileSet()
 	file, err := parser.ParseFile(fset, "file.go", string(data)+typeTestDefs, 0)
 	if err != nil {

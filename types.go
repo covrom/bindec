@@ -424,8 +424,8 @@ func (t Bytes) Decoder(recv string, root bool, constraints ...Constraint) string
 	beforecs, aftercs := constraintsForTpl(constraints, recv)
 	return fmt.Sprintf(
 		readBytes,
-		recv,
 		t.TypeName,
+		recv,
 		recvPrefix(root),
 		beforecs,
 		aftercs,
